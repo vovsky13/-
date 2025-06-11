@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автошкола "МастерВольт"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #2a5298, #4a7bb5);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255,255,255,0.1) 0%, transparent 20%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            animation: fadeInDown 1s ease;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            background: linear-gradient(to right, #ffd700, #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.8s ease;
+            animation-fill-mode: backwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.2s; }
+        .card:nth-child(2) { animation-delay: 0.4s; }
+        .card:nth-child(3) { animation-delay: 0.6s; }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+            display: flex;
+            align-items: center;
+        }
+
+        .card h2 i {
+            margin-right: 15px;
+            font-size: 2rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .contacts {
+            text-align: center;
+            margin: 60px 0;
+            animation: fadeIn 1s ease 0.8s both;
+        }
+
+        .contacts h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffd700;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .icon::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(rgba(255,255,255,0.1), transparent);
+            transform: rotate(30deg);
+            transition: all 0.5s ease;
+        }
+
+        .icon:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .icon:hover::after {
+            transform: rotate(30deg) translate(10px, 30px);
+        }
+
+        .viber { background: linear-gradient(135deg, #7b519d, #59267c); }
+        .whatsapp { background: linear-gradient(135deg, #25d366, #128c7e); }
+        .telegram { background: linear-gradient(135deg, #0088cc, #004d80); }
+        .gmail { background: linear-gradient(135deg, #ea4335, #b90e0e); }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            animation: fadeIn 1s ease 1s both;
+        }
+
+        .pulse {
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.2rem; }
+            .card-grid { grid-template-columns: 1fr; }
+            .icon { width: 70px; height: 70px; font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>АВТОШКОЛА <span class="pulse">"МАСТЕРВОЛЬТ"</span></h1>
+            <p class="subtitle">Получи права быстро и безопасно с лучшими инструкторами</p>
+        </header>
+
+        <div class="card-grid">
+            <div class="card">
+                <h2><i class="fas fa-graduation-cap"></i> Наши курсы</h2>
+                <ul>
+                    <li>Категория "B" - легковые автомобили</li>
+                    <li>Категория "A" - мотоциклы</li>
+                    <li>Экспресс-обучение за 1.5 месяца</li>
+                    <li>Индивидуальный график занятий</li>
+                    <li>Подготовка к экзамену в ГИБДД</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-star"></i> Преимущества</h2>
+                <ul>
+                    <li>Опытные инструкторы</li>
+                    <li>Современный автопарк</li>
+                    <li>Собственный автодром</li>
+                    <li>Рассрочка платежа</li>
+                    <li>Теория в онлайн-формате</li>
+                    <li>Гибкая система скидок</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-clock"></i> Часы работы</h2>
+                <ul>
+                    <li>Пн-Пт: 9:00 - 21:00</li>
+                    <li>Суббота: 10:00 - 18:00</li>
+                    <li>Воскресенье: выходной</li>
+                    <li>Практические занятия: ежедневно с 7:00 до 22:00</li>
+                    <li>Теоретические занятия: по расписанию групп</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contacts">
+            <h2>Свяжитесь с нами</h2>
+            <p>Запишитесь на бесплатное пробное занятие или задайте вопрос</p>
+            
+            <div class="social-icons">
+                <a href="viber://chat?number=%2B71234567890" class="icon viber">
+                    <i class="fab fa-viber"></i>
+                </a>
+                <a href="https://wa.me/71234567890" class="icon whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://t.me/avtoshkola_mastervolt" class="icon telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="mailto:avtoshkola@mastervolt.ru" class="icon gmail">
+                    <i class="fab fa-google"></i>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2023 Автошкола "МастерВольт". Лицензия №О123-456 от 01.01.2023</p>
+            <p>г. Москва, ул. Автодромная, д. 8 | Телефон: +7 (495) 123-45-67</p>
+        </footer>
+    </div>
+
+    <script>
+        // Анимация при скролле
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
