@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Автошкола "МастерВольт"</title>
+    <title>Scoala Auto 4GLG Property</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -40,10 +40,43 @@
             padding: 20px;
         }
 
+        /* Language Switcher */
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            margin: 0 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: #1a2a6c;
+        }
+
         header {
             text-align: center;
-            padding: 60px 20px 40px;
+            padding: 80px 20px 40px;
             animation: fadeInDown 1s ease;
+            position: relative;
         }
 
         h1 {
@@ -59,6 +92,26 @@
             font-size: 1.5rem;
             margin-bottom: 30px;
             opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 900px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease 0.5s both;
+        }
+
+        .info-box p {
+            margin: 10px 0;
+            line-height: 1.6;
+            font-size: 1.1rem;
         }
 
         .card-grid {
@@ -190,6 +243,8 @@
             margin-top: 40px;
             border-top: 1px solid rgba(255,255,255,0.1);
             animation: fadeIn 1s ease 1s both;
+            font-size: 0.9rem;
+            line-height: 1.7;
         }
 
         .pulse {
@@ -235,83 +290,236 @@
             .subtitle { font-size: 1.2rem; }
             .card-grid { grid-template-columns: 1fr; }
             .icon { width: 70px; height: 70px; font-size: 2rem; }
+            .lang-switcher {
+                position: static;
+                text-align: center;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="ro">RO</button>
+        </div>
+
         <header>
-            <h1>АВТОШКОЛА <span class="pulse">"МАСТЕРВОЛЬТ"</span></h1>
-            <p class="subtitle">Получи права быстро и безопасно с лучшими инструкторами</p>
+            <h1><span class="pulse">SCOALA AUTO 4GLG PROPERTY</span></h1>
+            <p class="subtitle" id="subtitle">Obțineți permisul rapid și în siguranță cu cei mai buni instructori</p>
         </header>
+
+        <!-- Company Information -->
+        <div class="info-box">
+            <p><strong>Scoala Aoto 4GLG Property SRL</strong></p>
+            <p>MD 2071, str. Alba-Iulia, 75/V, et. 5, mun. Chisinau, R. Moldova</p>
+            <p>IDNO: 1016600028246</p>
+            <p>IBAN: MD29ML000000002251717648</p>
+            <p>B.C. ”MICB” S.A., fil. "Remiz"</p>
+            <p>SWIFT: MOLDMD2X</p>
+            <p>Tel: <a href="tel:079910011" style="color: #ffd700; text-decoration: none;">079910011</a></p>
+            <p>Formarea profesionala a conducatorilor/conducatoarelor auto, (categoria/subcategoria B/Bl, CORM 006-2021- 832201)</p>
+        </div>
 
         <div class="card-grid">
             <div class="card">
-                <h2><i class="fas fa-graduation-cap"></i> Наши курсы</h2>
+                <h2><i class="fas fa-graduation-cap"></i> <span id="courses-title">Cursurile noastre</span></h2>
                 <ul>
-                    <li>Категория "B" - легковые автомобили</li>
-                    <li>Категория "A" - мотоциклы</li>
-                    <li>Экспресс-обучение за 1.5 месяца</li>
-                    <li>Индивидуальный график занятий</li>
-                    <li>Подготовка к экзамену в ГИБДД</li>
+                    <li><span id="course1">Categoria "B" - autoturisme</span></li>
+                    <li><span id="course2">Categoria "A" - motociclete</span></li>
+                    <li><span id="course3">Instruire accelerată (1.5 luni)</span></li>
+                    <li><span id="course4">Program individual de antrenament</span></li>
+                    <li><span id="course5">Pregătire pentru examenul la poliția rutieră</span></li>
                 </ul>
             </div>
 
             <div class="card">
-                <h2><i class="fas fa-star"></i> Преимущества</h2>
+                <h2><i class="fas fa-star"></i> <span id="benefits-title">Avantajele noastre</span></h2>
                 <ul>
-                    <li>Опытные инструкторы</li>
-                    <li>Современный автопарк</li>
-                    <li>Собственный автодром</li>
-                    <li>Рассрочка платежа</li>
-                    <li>Теория в онлайн-формате</li>
-                    <li>Гибкая система скидок</li>
+                    <li><span id="benefit1">Instructori cu experiență</span></li>
+                    <li><span id="benefit2">Parc auto modern</span></li>
+                    <li><span id="benefit3">Poligon propriu</span></li>
+                    <li><span id="benefit4">Plată în rate</span></li>
+                    <li><span id="benefit5">Teorie în format online</span></li>
+                    <li><span id="benefit6">Sistem flexibil de reduceri</span></li>
                 </ul>
             </div>
 
             <div class="card">
-                <h2><i class="fas fa-clock"></i> Часы работы</h2>
+                <h2><i class="fas fa-clock"></i> <span id="hours-title">Program de lucru</span></h2>
                 <ul>
-                    <li>Пн-Пт: 9:00 - 21:00</li>
-                    <li>Суббота: 10:00 - 18:00</li>
-                    <li>Воскресенье: выходной</li>
-                    <li>Практические занятия: ежедневно с 7:00 до 22:00</li>
-                    <li>Теоретические занятия: по расписанию групп</li>
+                    <li><span id="hour1">Luni-Vineri: 9:00 - 21:00</span></li>
+                    <li><span id="hour2">Sâmbătă: 10:00 - 18:00</span></li>
+                    <li><span id="hour3">Duminică: zilă de odihnă</span></li>
+                    <li><span id="hour4">Lecții practice: zilnic de la 7:00 la 22:00</span></li>
+                    <li><span id="hour5">Lecții teoretice: conform programului grupelor</span></li>
                 </ul>
             </div>
         </div>
 
         <div class="contacts">
-            <h2>Свяжитесь с нами</h2>
-            <p>Запишитесь на бесплатное пробное занятие или задайте вопрос</p>
+            <h2 id="contact-title">Contactați-ne</h2>
+            <p id="contact-subtitle">Înscrieți-vă pentru o lecție de probă gratuită sau puneți o întrebare</p>
             
             <div class="social-icons">
-                <a href="viber://chat?number=%2B71234567890" class="icon viber">
+                <a href="viber://chat?number=%2B37379910011" class="icon viber">
                     <i class="fab fa-viber"></i>
                 </a>
-                <a href="https://wa.me/71234567890" class="icon whatsapp">
+                <a href="https://wa.me/37379910011" class="icon whatsapp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="https://t.me/avtoshkola_mastervolt" class="icon telegram">
+                <a href="https://t.me/scoalaauto4glg" class="icon telegram">
                     <i class="fab fa-telegram"></i>
                 </a>
-                <a href="mailto:avtoshkola@mastervolt.ru" class="icon gmail">
+                <a href="mailto:info@4glg.md" class="icon gmail">
                     <i class="fab fa-google"></i>
                 </a>
             </div>
         </div>
 
         <footer>
-            <p>© 2023 Автошкола "МастерВольт". Лицензия №О123-456 от 01.01.2023</p>
-            <p>г. Москва, ул. Автодромная, д. 8 | Телефон: +7 (495) 123-45-67</p>
+            <p>© 2023 Scoala Auto 4GLG Property SRL</p>
+            <p>MD 2071, str. Alba-Iulia, 75/V, et. 5, mun. Chisinau, R. Moldova</p>
+            <p>IDNO: 1016600028246</p>
+            <p>IBAN: MD29ML000000002251717648</p>
+            <p>B.C. ”MICB” S.A., fil. "Remiz"</p>
+            <p>SWIFT: MOLDMD2X</p>
+            <p>Tel: <a href="tel:079910011" style="color: #ffd700; text-decoration: none;">079910011</a></p>
+            <p>Formarea profesionala a conducatorilor/conducatoarelor auto, (categoria/subcategoria B/Bl, CORM 006-2021- 832201)</p>
         </footer>
     </div>
 
     <script>
-        // Анимация при скролле
+        // Language switching functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.card');
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const elementsToTranslate = {
+                'subtitle': {
+                    'ru': 'Получите права быстро и безопасно с лучшими инструкторами',
+                    'ro': 'Obțineți permisul rapid și în siguranță cu cei mai buni instructori'
+                },
+                'courses-title': {
+                    'ru': 'Наши курсы',
+                    'ro': 'Cursurile noastre'
+                },
+                'course1': {
+                    'ru': 'Категория "B" - легковые автомобили',
+                    'ro': 'Categoria "B" - autoturisme'
+                },
+                'course2': {
+                    'ru': 'Категория "A" - мотоциклы',
+                    'ro': 'Categoria "A" - motociclete'
+                },
+                'course3': {
+                    'ru': 'Экспресс-обучение (1.5 месяца)',
+                    'ro': 'Instruire accelerată (1.5 luni)'
+                },
+                'course4': {
+                    'ru': 'Индивидуальный график занятий',
+                    'ro': 'Program individual de antrenament'
+                },
+                'course5': {
+                    'ru': 'Подготовка к экзамену в дорожной полиции',
+                    'ro': 'Pregătire pentru examenul la poliția rutieră'
+                },
+                'benefits-title': {
+                    'ru': 'Наши преимущества',
+                    'ro': 'Avantajele noastre'
+                },
+                'benefit1': {
+                    'ru': 'Опытные инструкторы',
+                    'ro': 'Instructori cu experiență'
+                },
+                'benefit2': {
+                    'ru': 'Современный автопарк',
+                    'ro': 'Parc auto modern'
+                },
+                'benefit3': {
+                    'ru': 'Собственный автодром',
+                    'ro': 'Poligon propriu'
+                },
+                'benefit4': {
+                    'ru': 'Рассрочка платежа',
+                    'ro': 'Plată în rate'
+                },
+                'benefit5': {
+                    'ru': 'Теория в онлайн-формате',
+                    'ro': 'Teorie în format online'
+                },
+                'benefit6': {
+                    'ru': 'Гибкая система скидок',
+                    'ro': 'Sistem flexibil de reduceri'
+                },
+                'hours-title': {
+                    'ru': 'Часы работы',
+                    'ro': 'Program de lucru'
+                },
+                'hour1': {
+                    'ru': 'Пн-Пт: 9:00 - 21:00',
+                    'ro': 'Luni-Vineri: 9:00 - 21:00'
+                },
+                'hour2': {
+                    'ru': 'Суббота: 10:00 - 18:00',
+                    'ro': 'Sâmbătă: 10:00 - 18:00'
+                },
+                'hour3': {
+                    'ru': 'Воскресенье: выходной',
+                    'ro': 'Duminică: zilă de odihnă'
+                },
+                'hour4': {
+                    'ru': 'Практические занятия: ежедневно с 7:00 до 22:00',
+                    'ro': 'Lecții practice: zilnic de la 7:00 la 22:00'
+                },
+                'hour5': {
+                    'ru': 'Теоретические занятия: по расписанию групп',
+                    'ro': 'Lecții teoretice: conform programului grupelor'
+                },
+                'contact-title': {
+                    'ru': 'Свяжитесь с нами',
+                    'ro': 'Contactați-ne'
+                },
+                'contact-subtitle': {
+                    'ru': 'Запишитесь на бесплатное пробное занятие или задайте вопрос',
+                    'ro': 'Înscrieți-vă pentru o lecție de probă gratuită sau puneți o întrebare'
+                }
+            };
+
+            // Set initial language
+            let currentLang = 'ro';
             
+            // Switch language function
+            function switchLanguage(lang) {
+                currentLang = lang;
+                
+                // Update button states
+                langButtons.forEach(btn => {
+                    if (btn.dataset.lang === lang) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+                
+                // Update all translatable elements
+                for (const [id, translations] of Object.entries(elementsToTranslate)) {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.textContent = translations[lang];
+                    }
+                }
+            }
+            
+            // Add click events to language buttons
+            langButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    switchLanguage(button.dataset.lang);
+                });
+            });
+            
+            // Scroll animations
+            const cards = document.querySelectorAll('.card');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
