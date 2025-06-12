@@ -1,24 +1,38 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scoala Auto 4GLG Property</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #1a2a6c;
+            --secondary: #2a5298;
+            --accent: #ff9d00;
+            --accent-light: #ffd700;
+            --text: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --card-hover: rgba(255, 255, 255, 0.15);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #1a2a6c, #2a5298, #4a7bb5);
-            color: #fff;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), #4a7bb5);
+            color: var(--text);
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
         }
 
         body::before {
@@ -29,8 +43,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(255,255,255,0.1) 0%, transparent 20%);
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255,255,255,0.05) 0%, transparent 20%),
+                linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1));
             z-index: -1;
         }
 
@@ -46,72 +61,90 @@
             top: 20px;
             right: 20px;
             z-index: 100;
+            display: flex;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 30px;
+            padding: 5px;
+            backdrop-filter: blur(5px);
         }
 
         .lang-btn {
-            background: rgba(255, 255, 255, 0.2);
+            background: transparent;
             border: none;
-            color: white;
-            padding: 8px 15px;
+            color: var(--text);
+            padding: 8px 20px;
             border-radius: 20px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            margin: 0 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .lang-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
         }
 
         .lang-btn.active {
-            background: linear-gradient(135deg, #ffd700, #ff8c00);
-            color: #1a2a6c;
+            background: var(--accent);
+            color: #1a1a2e;
+            box-shadow: 0 4px 15px rgba(255, 157, 0, 0.4);
         }
 
         header {
             text-align: center;
-            padding: 80px 20px 40px;
+            padding: 100px 20px 60px;
             animation: fadeInDown 1s ease;
             position: relative;
         }
 
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+        }
+
         h1 {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            background: linear-gradient(to right, #ffd700, #ff8c00);
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to right, var(--accent-light), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 25%;
+            width: 50%;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
         }
 
         .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            font-size: 1.8rem;
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            opacity: 0.9;
+            line-height: 1.4;
         }
 
-        .info-box {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 30px auto;
-            max-width: 900px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            animation: fadeIn 1s ease 0.5s both;
-        }
-
-        .info-box p {
-            margin: 10px 0;
-            line-height: 1.6;
-            font-size: 1.1rem;
+        .highlight {
+            color: var(--accent-light);
+            font-weight: 500;
         }
 
         .card-grid {
@@ -122,14 +155,30 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
             border-radius: 20px;
-            padding: 30px;
+            padding: 35px 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             animation: fadeInUp 0.8s ease;
             animation-fill-mode: backwards;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
         }
 
         .card:nth-child(1) { animation-delay: 0.2s; }
@@ -137,22 +186,29 @@
         .card:nth-child(3) { animation-delay: 0.6s; }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+            background: var(--card-hover);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
         }
 
         .card h2 {
             font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #ffd700;
+            margin-bottom: 25px;
+            color: var(--accent-light);
             display: flex;
             align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
         }
 
         .card h2 i {
             margin-right: 15px;
             font-size: 2rem;
+            color: var(--accent);
         }
 
         .card ul {
@@ -161,75 +217,90 @@
         }
 
         .card li {
-            margin-bottom: 12px;
-            padding-left: 25px;
+            margin-bottom: 15px;
+            padding-left: 35px;
             position: relative;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1.1rem;
         }
 
         .card li::before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: #4caf50;
+            color: var(--accent);
             font-weight: bold;
+            font-size: 1.3rem;
+            top: -2px;
         }
 
         .contacts {
             text-align: center;
-            margin: 60px 0;
+            margin: 80px 0 60px;
             animation: fadeIn 1s ease 0.8s both;
         }
 
         .contacts h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #ffd700;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-light);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .contact-subtitle {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
         }
 
         .social-icons {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 25px;
+            gap: 30px;
             margin-top: 30px;
         }
 
         .icon {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: white;
             text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
             position: relative;
             overflow: hidden;
         }
 
-        .icon::after {
+        .icon::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(rgba(255,255,255,0.1), transparent);
-            transform: rotate(30deg);
-            transition: all 0.5s ease;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+            z-index: -1;
+        }
+
+        .icon i {
+            transition: transform 0.3s ease;
         }
 
         .icon:hover {
-            transform: translateY(-10px) scale(1.1);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transform: translateY(-15px) scale(1.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.35);
         }
 
-        .icon:hover::after {
-            transform: rotate(30deg) translate(10px, 30px);
+        .icon:hover i {
+            transform: scale(1.2);
         }
 
         .viber { background: linear-gradient(135deg, #7b519d, #59267c); }
@@ -239,12 +310,27 @@
 
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 40px 20px;
             margin-top: 40px;
             border-top: 1px solid rgba(255,255,255,0.1);
             animation: fadeIn 1s ease 1s both;
-            font-size: 0.9rem;
-            line-height: 1.7;
+            font-size: 1rem;
+            line-height: 1.8;
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(5px);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+
+        .contact-info {
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .pulse {
@@ -252,10 +338,11 @@
             animation: pulse 2s infinite;
         }
 
+        /* Animations */
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: translateY(-40px);
             }
             to {
                 opacity: 1;
@@ -266,7 +353,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -285,16 +372,38 @@
             100% { transform: scale(1); }
         }
 
+        /* Responsive */
+        @media (max-width: 992px) {
+            h1 { font-size: 3.2rem; }
+            .subtitle { font-size: 1.5rem; }
+        }
+
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .subtitle { font-size: 1.2rem; }
+            header { padding: 90px 20px 40px; }
+            h1 { font-size: 2.7rem; }
+            .subtitle { font-size: 1.3rem; }
             .card-grid { grid-template-columns: 1fr; }
-            .icon { width: 70px; height: 70px; font-size: 2rem; }
+            .icon { width: 75px; height: 75px; font-size: 2.3rem; }
+            .contacts h2 { font-size: 2.3rem; }
             .lang-switcher {
-                position: static;
-                text-align: center;
+                top: 15px;
+                right: 15px;
+            }
+            .logo {
+                position: relative;
+                top: 0;
+                left: 0;
+                display: block;
                 margin-bottom: 20px;
             }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 1.1rem; }
+            .card { padding: 25px 20px; }
+            .contacts h2 { font-size: 2rem; }
+            .icon { width: 65px; height: 65px; font-size: 2rem; }
         }
     </style>
 </head>
@@ -302,26 +411,15 @@
     <div class="container">
         <!-- Language Switcher -->
         <div class="lang-switcher">
-            <button class="lang-btn active" data-lang="ru">RU</button>
-            <button class="lang-btn" data-lang="ro">RO</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+            <button class="lang-btn active" data-lang="ro">RO</button>
         </div>
 
         <header>
-            <h1><span class="pulse">SCOALA AUTO 4GLG PROPERTY</span></h1>
-            <p class="subtitle" id="subtitle">Obțineți permisul rapid și în siguranță cu cei mai buni instructori</p>
+            <div class="logo">4GLG PROPERTY</div>
+            <h1><span class="pulse">SCOALA AUTO</span></h1>
+            <p class="subtitle">Obțineți permisul rapid și în siguranță cu cei mai buni <span class="highlight">instructori profesioniști</span></p>
         </header>
-
-        <!-- Company Information -->
-        <div class="info-box">
-            <p><strong>Scoala Aoto 4GLG Property SRL</strong></p>
-            <p>MD 2071, str. Alba-Iulia, 75/V, et. 5, mun. Chisinau, R. Moldova</p>
-            <p>IDNO: 1016600028246</p>
-            <p>IBAN: MD29ML000000002251717648</p>
-            <p>B.C. ”MICB” S.A., fil. "Remiz"</p>
-            <p>SWIFT: MOLDMD2X</p>
-            <p>Tel: <a href="tel:079910011" style="color: #ffd700; text-decoration: none;">079910011</a></p>
-            <p>Formarea profesionala a conducatorilor/conducatoarelor auto, (categoria/subcategoria B/Bl, CORM 006-2021- 832201)</p>
-        </div>
 
         <div class="card-grid">
             <div class="card">
@@ -339,10 +437,10 @@
                 <h2><i class="fas fa-star"></i> <span id="benefits-title">Avantajele noastre</span></h2>
                 <ul>
                     <li><span id="benefit1">Instructori cu experiență</span></li>
-                    <li><span id="benefit2">Parc auto modern</span></li>
-                    <li><span id="benefit3">Poligon propriu</span></li>
-                    <li><span id="benefit4">Plată în rate</span></li>
-                    <li><span id="benefit5">Teorie în format online</span></li>
+                    <li><span id="benefit2">Parc auto modern și sigur</span></li>
+                    <li><span id="benefit3">Poligon propriu tehnologic</span></li>
+                    <li><span id="benefit4">Plată în rate fără dobândă</span></li>
+                    <li><span id="benefit5">Teorie în format online interactiv</span></li>
                     <li><span id="benefit6">Sistem flexibil de reduceri</span></li>
                 </ul>
             </div>
@@ -360,8 +458,8 @@
         </div>
 
         <div class="contacts">
-            <h2 id="contact-title">Contactați-ne</h2>
-            <p id="contact-subtitle">Înscrieți-vă pentru o lecție de probă gratuită sau puneți o întrebare</p>
+            <h2 id="contact-title">Contactați-ne acum!</h2>
+            <p class="contact-subtitle" id="contact-subtitle">Înscrieți-vă pentru o lecție de probă gratuită sau obțineți consultanță personalizată</p>
             
             <div class="social-icons">
                 <a href="viber://chat?number=%2B37379910011" class="icon viber">
@@ -380,14 +478,14 @@
         </div>
 
         <footer>
-            <p>© 2023 Scoala Auto 4GLG Property SRL</p>
-            <p>MD 2071, str. Alba-Iulia, 75/V, et. 5, mun. Chisinau, R. Moldova</p>
-            <p>IDNO: 1016600028246</p>
-            <p>IBAN: MD29ML000000002251717648</p>
-            <p>B.C. ”MICB” S.A., fil. "Remiz"</p>
-            <p>SWIFT: MOLDMD2X</p>
-            <p>Tel: <a href="tel:079910011" style="color: #ffd700; text-decoration: none;">079910011</a></p>
-            <p>Formarea profesionala a conducatorilor/conducatoarelor auto, (categoria/subcategoria B/Bl, CORM 006-2021- 832201)</p>
+            <div class="footer-title">Scoala Auto 4GLG Property SRL</div>
+            <div class="contact-info">
+                <p>MD 2071, str. Alba-Iulia, 75/V, et. 5, mun. Chisinau, R. Moldova</p>
+                <p>IDNO: 1016600028246 | IBAN: MD29ML000000002251717648</p>
+                <p>B.C. ”MICB” S.A., fil. "Remiz" | SWIFT: MOLDMD2X</p>
+                <p>Tel: <a href="tel:079910011" style="color: var(--accent-light); text-decoration: none; font-weight: 500;">079910011</a> | Email: <a href="mailto:info@4glg.md" style="color: var(--accent-light); text-decoration: none; font-weight: 500;">info@4glg.md</a></p>
+                <p>Formarea profesionala a conducatorilor/conducatoarelor auto, (categoria/subcategoria B/Bl, CORM 006-2021- 832201)</p>
+            </div>
         </footer>
     </div>
 
@@ -396,10 +494,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             const langButtons = document.querySelectorAll('.lang-btn');
             const elementsToTranslate = {
-                'subtitle': {
-                    'ru': 'Получите права быстро и безопасно с лучшими инструкторами',
-                    'ro': 'Obțineți permisul rapid și în siguranță cu cei mai buni instructori'
-                },
                 'courses-title': {
                     'ru': 'Наши курсы',
                     'ro': 'Cursurile noastre'
@@ -433,20 +527,20 @@
                     'ro': 'Instructori cu experiență'
                 },
                 'benefit2': {
-                    'ru': 'Современный автопарк',
-                    'ro': 'Parc auto modern'
+                    'ru': 'Современный и безопасный автопарк',
+                    'ro': 'Parc auto modern și sigur'
                 },
                 'benefit3': {
-                    'ru': 'Собственный автодром',
-                    'ro': 'Poligon propriu'
+                    'ru': 'Собственный технологичный автодром',
+                    'ro': 'Poligon propriu tehnologic'
                 },
                 'benefit4': {
-                    'ru': 'Рассрочка платежа',
-                    'ro': 'Plată în rate'
+                    'ru': 'Рассрочка платежа без процентов',
+                    'ro': 'Plată în rate fără dobândă'
                 },
                 'benefit5': {
-                    'ru': 'Теория в онлайн-формате',
-                    'ro': 'Teorie în format online'
+                    'ru': 'Интерактивная онлайн-теория',
+                    'ro': 'Teorie în format online interactiv'
                 },
                 'benefit6': {
                     'ru': 'Гибкая система скидок',
@@ -477,16 +571,16 @@
                     'ro': 'Lecții teoretice: conform programului grupelor'
                 },
                 'contact-title': {
-                    'ru': 'Свяжитесь с нами',
-                    'ro': 'Contactați-ne'
+                    'ru': 'Свяжитесь с нами сейчас!',
+                    'ro': 'Contactați-ne acum!'
                 },
                 'contact-subtitle': {
-                    'ru': 'Запишитесь на бесплатное пробное занятие или задайте вопрос',
-                    'ro': 'Înscrieți-vă pentru o lecție de probă gratuită sau puneți o întrebare'
+                    'ru': 'Запишитесь на бесплатное пробное занятие или получите персональную консультацию',
+                    'ro': 'Înscrieți-vă pentru o lecție de probă gratuită sau obțineți consultanță personalizată'
                 }
             };
 
-            // Set initial language
+            // Set initial language to Romanian
             let currentLang = 'ro';
             
             // Switch language function
@@ -517,6 +611,9 @@
                     switchLanguage(button.dataset.lang);
                 });
             });
+            
+            // Initialize with Romanian
+            switchLanguage('ro');
             
             // Scroll animations
             const cards = document.querySelectorAll('.card');
