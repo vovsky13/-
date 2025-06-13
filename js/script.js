@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const langButtons = document.querySelectorAll('.lang-btn');
 
-    // Obiect de traduceri îmbunătățit și extins
+    // Updated and expanded translation object
     const translations = {
         'ro': {
             'pageTitle': 'Școala Auto 4GLG Property - Permis de Conducere Rapid și Sigur',
@@ -101,14 +101,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    let currentLang = localStorage.getItem('selectedLang') || 'ro'; // Preia limba salvată sau 'ro' ca default
+    let currentLang = localStorage.getItem('selectedLang') || 'ro'; // Retrieve saved language or 'ro' as default
 
-    // Funcție pentru aplicarea traducerilor
+    // Function to apply translations
     function applyTranslations(lang) {
-        // Traducere titlu pagină
+        // Translate page title
         document.title = translations[lang]['pageTitle'];
 
-        // Traducere elemente cu ID
+        // Translate elements with ID
         document.getElementById('courses-title').innerHTML = translations[lang]['coursesTitle'];
         document.getElementById('course1').innerHTML = translations[lang]['course1'];
         document.getElementById('course2').innerHTML = translations[lang]['course2'];
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('contact-title').innerHTML = translations[lang]['contactTitle'];
         document.getElementById('contact-subtitle').innerHTML = translations[lang]['contactSubtitle'];
 
-        // Traducere elemente fără ID, folosind clase sau alte selectoare
+        // Translate elements without ID, using classes or other selectors
         document.querySelector('h1 .pulse').innerHTML = translations[lang]['mainTitle'];
         document.querySelector('.subtitle').innerHTML = translations[lang]['subtitle'];
 
@@ -145,11 +145,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.querySelector('.cta-section h2').innerHTML = translations[lang]['ctaHeader'];
         document.querySelector('.cta-section p').innerHTML = translations[lang]['ctaText'];
-        document.querySelector('.cta-btn').childNodes[0].nodeValue = translations[lang]['ctaBtn'] + ' '; // Asigură spațiu pentru iconiță
+        document.querySelector('.cta-btn').childNodes[0].nodeValue = translations[lang]['ctaBtn'] + ' '; // Ensure space for icon
 
         document.querySelector('.whatsapp-text').innerHTML = translations[lang]['whatsappFloatText'];
 
-        // Traduceri pentru footer (necesită selectoare mai specifice dacă nu au ID-uri)
+        // Translations for footer (requires more specific selectors if they don't have IDs)
         document.querySelector('footer .footer-title').innerHTML = translations[lang]['footerCompanyName'];
         const footerParagraphs = document.querySelectorAll('.contact-info p');
         footerParagraphs[0].innerHTML = translations[lang]['footerAddress'];
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
         footerParagraphs[3].innerHTML = translations[lang]['footerContact'];
         footerParagraphs[4].innerHTML = translations[lang]['footerLicense'];
 
-        // Traduceri pentru mărturii (dacă este necesar, fiecare mărturie are nevoie de ID-uri specifice)
+        // Translations for testimonials (if needed, each testimonial needs specific IDs)
         document.querySelector('.testimonial:nth-child(1) .testimonial-name').innerHTML = translations[lang]['testimonial1Name'];
         document.querySelector('.testimonial:nth-child(1) .testimonial-date').innerHTML = translations[lang]['testimonial1Date'];
         document.querySelector('.testimonial:nth-child(1) .testimonial-content').innerHTML = translations[lang]['testimonial1Content'];
@@ -172,10 +172,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.testimonial:nth-child(3) .testimonial-content').innerHTML = translations[lang]['testimonial3Content'];
 
 
-        // Adăugați logica pentru a re-renderiza elementele HTML care folosesc <strong> sau alte tag-uri din traducerile dinamice
-        // Acest lucru este important pentru ca **text** să fie interpretat ca <strong>text</strong>
-        // O soluție simplă, dar care necesită atenție la securitate (XSS), este să folosiți innerHTML
-        // Dacă nu este necesară formatarea HTML în traducerile dinamice, puteți folosi textContent
+        // Add logic to re-render HTML elements that use <strong> or other tags from dynamic translations
+        // This is important for **text** to be interpreted as <strong>text</strong>
+        // A simple solution, but requires attention to security (XSS), is to use innerHTML
+        // If HTML formatting is not required in dynamic translations, you can use textContent
         const elementsWithHTML = document.querySelectorAll(
             '#course1, #course2, #course3, #course4, #course5, ' +
             '#benefit1, #benefit2, #benefit3, #benefit4, #benefit5, #benefit6, ' +
@@ -195,10 +195,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Funcție pentru comutarea limbii
+    // Function to switch language
     function switchLanguage(lang) {
         currentLang = lang;
-        localStorage.setItem('selectedLang', lang); // Salvează limba în localStorage
+        localStorage.setItem('selectedLang', lang); // Save language to localStorage
 
         langButtons.forEach(btn => {
             btn.classList.toggle('active', btn.dataset.lang === lang);
@@ -207,37 +207,37 @@ document.addEventListener('DOMContentLoaded', function() {
         applyTranslations(lang);
     }
 
-    // Inițializare limbă la încărcare
+    // Initialize language on load
     switchLanguage(currentLang);
 
-    // Adaugă evenimente la butoanele de limbă
+    // Add events to language buttons
     langButtons.forEach(button => {
         button.addEventListener('click', () => {
             switchLanguage(button.dataset.lang);
         });
     });
 
-    // Animații la scroll (Intersection Observer)
+    // Scroll animations (Intersection Observer)
     const cards = document.querySelectorAll('.card');
     const observerOptions = {
-        threshold: 0.1 // Începe animația când 10% din element este vizibil
+        threshold: 0.1 // Start animation when 10% of element is visible
     };
 
     const cardObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
-                observer.unobserve(entry.target); // Oprește observarea după prima apariție
+                observer.unobserve(entry.target); // Stop observing after first appearance
             }
         });
     }, observerOptions);
 
     cards.forEach(card => {
-        card.style.opacity = '0'; // Asigură că elementul este invizibil inițial
+        card.style.opacity = '0'; // Ensure element is initially invisible
         cardObserver.observe(card);
     });
 
-    // Funcționalitate buton CTA
+    // CTA button functionality
     const ctaBtn = document.querySelector('.cta-btn');
     if (ctaBtn) {
         ctaBtn.addEventListener('click', function() {
@@ -247,11 +247,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth'
                 });
 
-                // Adaugă o animație temporară pentru a sublinia secțiunea de contact
+                // Add a temporary animation to highlight the contact section
                 contactsSection.classList.add('pulse-highlight');
                 contactsSection.addEventListener('animationend', () => {
                     contactsSection.classList.remove('pulse-highlight');
-                }, { once: true }); // Evenimentul se declanșează o singură dată
+                }, { once: true }); // Event fires only once
             }
         });
     }
