@@ -3,314 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Școala Auto 4GLG Property - Permis Rapid și Sigur | Chișinău</title>
+    <title>Școala Auto 4GLG Property - Permis de Conducere Rapid și Sigur</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Новые стили */
-        :root {
-            --primary: #1a6dcc;
-            --secondary: #e74c3c;
-            --accent: #f39c12;
-            --dark: #2c3e50;
-            --light: #ecf0f1;
-        }
-        
-        .new-header {
-            background: linear-gradient(90deg, var(--dark), var(--primary));
-            color: white;
-            padding: 1rem 0;
-            position: relative;
-        }
-        
-        .new-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .hero-section {
-            background: url('driving-school-bg.jpg') center/cover no-repeat;
-            padding: 4rem 1rem;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-        
-        .hero-overlay {
-            background: rgba(0, 0, 0, 0.6);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .cta-btn-primary {
-            background: var(--accent);
-            color: white;
-            font-weight: 600;
-            padding: 15px 30px;
-            border-radius: 50px;
-            border: none;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .benefit-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .testimonial-with-photo {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .testimonial-avatar-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary);
-        }
-        
-        .contact-form {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .map-container {
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-top: 2rem;
-        }
-        
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="css/style.css"> </head>
 <body>
     <div class="container">
-        <!-- Обновленный хедер -->
-        <header class="new-header">
-            <div class="logo-container">
-                <div class="new-logo">
-                    <i class="fas fa-car-alt"></i>
-                    <div>
-                        <div>ȘCOALA AUTO</div>
-                        <div style="font-size: 1.3rem;">4GLG PROPERTY</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="lang-switcher">
-                <button class="lang-btn" data-lang="ru">RU</button>
-                <button class="lang-btn active" data-lang="ro">RO</button>
-            </div>
-        </header>
-
-        <!-- Герой-секция -->
-        <section class="hero-section">
-            <div class="hero-overlay"></div>
-            <div class="hero-content" style="position: relative; z-index: 2;">
-                <h1 class="hero-title">Permis de Conducere Rapid și Sigur</h1>
-                <p class="hero-subtitle">Cu succes garantat și instructori cu peste 15 ani experiență</p>
-                
-                <div class="hero-stats" style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;">
-                    <div class="stat-item">
-                        <div class="stat-value">98%</div>
-                        <div class="stat-label">Rata de succes</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">1500+</div>
-                        <div class="stat-label">Șoferi pregătiți</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">1.5 luni</div>
-                        <div class="stat-label">Program rapid</div>
-                    </div>
-                </div>
-                
-                <button class="cta-btn-primary">
-                    ÎNSCRIE-TE ACUM
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-        </section>
-
-        <!-- Обновленный баннер с акцией -->
-        <div class="promo-banner" style="background: var(--secondary); color: white; padding: 1.5rem; text-align: center;">
-            <h3 style="margin: 0; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                <i class="fas fa-gift"></i> 
-                OFERTĂ LIMITATĂ: Reducere 15% + Lecție Gratuită!
-            </h3>
-            <p style="margin: 10px 0 0; font-weight: 500;">Valabilă doar pentru primele 10 înscrieri lunare</p>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="ru">RU</button>
+            <button class="lang-btn active" data-lang="ro">RO</button>
         </div>
 
-        <!-- Обновленная сетка преимуществ -->
-        <section style="padding: 4rem 1rem; background: var(--light);">
-            <h2 style="text-align: center; margin-bottom: 2rem;">De ce să alegi Școala Auto 4GLG?</h2>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div style="padding: 1.5rem;">
-                        <div style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">
-                            <i class="fas fa-car"></i>
-                        </div>
-                        <h3>Parc auto modern</h3>
-                        <p>Mașini noi cu dublu comandă și tehnologie de siguranță</p>
-                    </div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div style="padding: 1.5rem;">
-                        <div style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h3>Instructori experți</h3>
-                        <p>Specialiști cu peste 10 ani experiență în pregătirea șoferilor</p>
-                    </div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div style="padding: 1.5rem;">
-                        <div style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;">
-                            <i class="fas fa-euro-sign"></i>
-                        </div>
-                        <h3>Prețuri accesibile</h3>
-                        <p>Plăți în rate fără dobândă și reduceri pentru studenți</p>
-                    </div>
-                </div>
+        <header>
+            <div class="logo">
+                <i class="fas fa-steering-wheel logo-icon"></i> 4GLG PROPERTY
             </div>
-        </section>
+            <h1><span class="pulse">Școala Auto</span></h1>
+            <p class="subtitle">Obțineți permisul de conducere rapid și în siguranță, alături de <span class="highlight">instructori profesioniști</span> și pasionați.</p>
+        </header>
 
-        <!-- Обновленные отзывы -->
-        <div class="testimonials" style="padding: 4rem 1rem;">
-            <h2 style="text-align: center; margin-bottom: 2rem;">Recenziile clienților noștri</h2>
-            
+        <div class="promo-banner">
+            <h3>Ofertă Specială: Pachet Complet pentru Începători!</h3>
+            <p>Beneficiați de **15% reducere** la pachetul complet pentru studenți. Înscrieți-vă acum și porniți la drum!</p>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <h2><i class="fas fa-car-side"></i> <span id="courses-title">Curriculum complet</span></h2>
+                <ul>
+                    <li><span id="course1">**Categoria "B"** – Autoturisme, pentru libertate pe șosele.</span></li>
+                    <li><span id="course2">**Categoria "A"** – Motociclete, pentru pasionații de două roți.</span></li>
+                    <li><span id="course3">Instruire accelerată: Obțineți permisul în **doar 1.5 luni!**</span></li>
+                    <li><span id="course4">Program individual de antrenament, adaptat nevoilor dvs.</span></li>
+                    <li><span id="course5">Pregătire intensivă pentru examenul la poliția rutieră.</span></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-award"></i> <span id="benefits-title">Avantajele noastre</span></h2>
+                <ul>
+                    <li><span id="benefit1">Instructori cu vastă **experiență** și dedicare.</span></li>
+                    <li><span id="benefit2">Parc auto **modern și sigur**, mereu la standarde înalte.</span></li>
+                    <li><span id="benefit3">**Poligon propriu** cu tehnologie avansată, pentru o practică eficientă.</span></li>
+                    <li><span id="benefit4">Plată în rate **fără dobândă**, accesibilă pentru toți.</span></li>
+                    <li><span id="benefit5">Teorie în format **online interactiv**, învățare de oriunde.</span></li>
+                    <li><span id="benefit6">Sistem **flexibil de reduceri** și oferte personalizate.</span></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-calendar-alt"></i> <span id="hours-title">Program de lucru</span></h2>
+                <ul>
+                    <li><span id="hour1">**Luni – Vineri:** 9:00 – 21:00</span></li>
+                    <li><span id="hour2">**Sâmbătă:** 10:00 – 18:00</span></li>
+                    <li><span id="hour3">**Duminică:** Zi de odihnă</span></li>
+                    <li><span id="hour4">**Lecții practice:** Zilnic, de la 7:00 la 22:00.</span></li>
+                    <li><span id="hour5">**Lecții teoretice:** Conform programului grupelor.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="testimonials">
+            <h2>Ce Spun Elevii Noștri</h2>
             <div class="testimonial-grid">
                 <div class="testimonial">
-                    <div class="testimonial-with-photo">
-                        <img src="student1.jpg" alt="Andrei Popescu" class="testimonial-avatar-img">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
                         <div>
                             <div class="testimonial-name">Andrei Popescu</div>
                             <div class="testimonial-date">Martie 2024</div>
-                            <div class="rating">★★★★★</div>
                         </div>
                     </div>
                     <div class="testimonial-content">
-                        "Am luat permisul din prima încercare! Instructorul a fost extrem de răbdător și profesionist. Recomand cu încredere școala 4GLG."
+                        "Am luat permisul din prima încercare datorită instruirii de calitate superioară. Instructorii sunt răbdători și extrem de profesioniști. Recomand cu toată încrederea!"
+                    </div>
+                    <div class="rating">
+                        ★★★★★
                     </div>
                 </div>
-                
-                <!-- Добавьте больше отзывов по аналогии -->
+
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div>
+                            <div class="testimonial-name">Elena Vasilescu</div>
+                            <div class="testimonial-date">Februarie 2024</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        "Programul flexibil mi-a permis să combin școala cu jobul fără probleme. Mașinile sunt noi și foarte bine întreținute. Un mare mulțumesc echipei 4GLG!"
+                    </div>
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div>
+                            <div class="testimonial-name">Mihai Ionescu</div>
+                            <div class="testimonial-date">Ianuarie 2024</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        "Cursul accelerat a fost exact ce aveam nevoie. În doar 6 săptămâni am reușit să trec examenul. Prețuri competitive și servicii de top!"
+                    </div>
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Секция записи -->
-        <section style="padding: 4rem 1rem; background: linear-gradient(135deg, var(--primary), var(--dark)); color: white;">
-            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                <div>
-                    <h2>Programează o lecție de probă gratuită!</h2>
-                    <p>Completează formularul și te vom contacta în maxim 30 de minute pentru a confirma programarea.</p>
-                    
-                    <ul style="margin-top: 2rem;">
-                        <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;">
-                            <i class="fas fa-check-circle"></i> 30 de minute de conducere practică
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;">
-                            <i class="fas fa-check-circle"></i> Consiliere profesională
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle"></i> Fără obligații
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="contact-form">
-                    <div class="form-group">
-                        <label>Numele complet</label>
-                        <input type="text" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Telefon</label>
-                        <input type="tel" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Categoria permisului</label>
-                        <select style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
-                            <option>B - Autoturisme</option>
-                            <option>A - Motociclete</option>
-                        </select>
-                    </div>
-                    
-                    <button class="cta-btn-primary" style="width: 100%;">
-                        TRIMITE ÎNSCRIEREA
-                    </button>
-                </div>
-            </div>
-        </section>
+        <div class="cta-section">
+            <h2>Gata să pornești la drum?</h2>
+            <p>Înscrie-te acum pentru o **lecție de probă gratuită** și beneficiază de o **reducere de 10%** la pachetul complet!</p>
+            <button class="cta-btn">ÎNSCRIE-TE ACUM <i class="fas fa-arrow-right"></i></button>
+        </div>
 
-        <!-- Секция с картой -->
-        <section style="padding: 4rem 1rem;">
-            <h2 style="text-align: center; margin-bottom: 1rem;">Ne găsiți ușor</h2>
-            <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem;">Str. Alba-Iulia, 75/V, et. 5, Chișinău</p>
-            
-            <div class="map-container">
-                <!-- Здесь будет карта Google Maps -->
-                <iframe src="https://www.google.com/maps/embed?..." 
-                    style="width:100%; height:100%; border:0;" allowfullscreen loading="lazy">
-                </iframe>
-            </div>
-            
-            <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
-                <button class="cta-btn-primary">
-                    <i class="fas fa-route"></i> DIRECTII
-                </button>
-                <button class="cta-btn-primary" style="background: var(--primary);">
-                    <i class="fas fa-phone-alt"></i> SUNĂ ACUM
-                </button>
-            </div>
-        </section>
+        <div class="contacts">
+            <h2 id="contact-title">Contactați-ne acum!</h2>
+            <p class="contact-subtitle" id="contact-subtitle">Suntem aici să răspundem întrebărilor dvs. Înscrieți-vă pentru o lecție de probă gratuită sau obțineți consultanță personalizată!</p>
 
-        <!-- Остальной код остается аналогичным -->
+            <div class="social-icons">
+                <a href="viber://chat?number=%2B37379910011" class="icon viber" aria-label="Contactați-ne pe Viber">
+                    <i class="fab fa-viber"></i>
+                </a>
+                <a href="https://wa.me/37379910011" class="icon whatsapp" aria-label="Contactați-ne pe WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://t.me/scoalaauto4glg" class="icon telegram" aria-label="Contactați-ne pe Telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="mailto:info@4glg.md" class="icon gmail" aria-label="Contactați-ne prin Email">
+                    <i class="fab fa-google"></i>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-title">Școala Auto 4GLG Property SRL</div>
+            <div class="contact-info">
+                <p>MD 2071, str. Alba-Iulia, 75/V, et. 5, mun. Chișinău, R. Moldova</p>
+                <p>IDNO: 1016600028246 | IBAN: MD29ML000000002251717648</p>
+                <p>B.C. ”MICB” S.A., fil. "Remiz" | SWIFT: MOLDMD2X</p>
+                <p>Tel: <a href="tel:079910011">079910011</a> | Email: <a href="mailto:info@4glg.md">info@4glg.md</a></p>
+                <p>Formarea profesională a conducătorilor auto (categoria/subcategoria B/B1, CORM 006-2021-832201).</p>
+            </div>
+        </footer>
     </div>
-</body>
+
+    <a href="https://wa.me/37379910011" class="whatsapp-float" aria-label="Întreabă-ne pe WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-text">Întreabă-ne pe WhatsApp</div>
+    </a>
+
+    <div class="road-signs-background">
+        <div class="sign sign-triangle" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+        <div class="sign sign-circle" style="top: 30%; right: 8%; animation-delay: 1.5s;"></div>
+        <div class="sign sign-square" style="bottom: 15%; left: 12%; animation-delay: 3s;"></div>
+        <div class="sign sign-yield" style="top: 55%; left: 3%; animation-delay: 4.5s;"></div>
+        <div class="sign sign-stop" style="bottom: 5%; right: 10%; animation-delay: 6s;"></div>
+    </div>
+
+
+    <script src="js/script.js" defer></script> </body>
 </html>
